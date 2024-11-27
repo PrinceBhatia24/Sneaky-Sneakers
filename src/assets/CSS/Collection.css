@@ -1,0 +1,161 @@
+.card {
+    border: none !important;
+}
+
+.filter {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.filter li {
+    color: rgb(37, 37, 37);
+    border-radius: 3px;
+    font-size: 12px;
+    padding: .3rem .9em;
+    font-weight: 400;
+    width: fit-content;
+    border-radius: 8px;
+    background: transparent;
+    border-color: rgb(37, 37, 37);
+    border: 1px solid;
+    cursor: pointer;
+    padding: 6px 18px;
+    margin: 5px 0;
+    display: inline-block;
+    transition: box-shadow 0.3s ease;
+    background-color: rgb(247 247 247 / 1);
+}
+
+.OverFlowSidebar {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 97%;
+}
+
+.BorderTop {
+    border-bottom: 1px solid #c7c8c966;
+}
+
+.pf {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.filer_content {
+    FONT-SIZE: 13px;
+    font-weight: 500;
+}
+
+.QuantStyle {
+    font-weight: 500;
+    FONT-SIZE: 13px;
+    color: #000000a6;
+    position: relative;
+    top: -5px;
+}
+
+.filterSticky {
+    border-right: 1px solid #8080805e;
+    left: 7px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 7rem;
+    display: block;
+    height: calc(100vh - 0rem);
+    padding-left: 0.25rem;
+    margin-left: -0.25rem;
+}
+
+@media (max-width:1193px) {
+    .filter {
+        display: grid;
+
+    }
+
+    .filter li {
+        margin: 0px 0 !important;
+    }
+
+    .filterSticky {
+        padding: 0px !important;
+    }
+
+    .filer_content {
+        font-size: 11px;
+    }
+
+    .BorderTop {
+        margin: 0px 10px;
+    }
+
+    .min-box,
+    .max-box {
+        width: 100% !important
+    }
+}
+
+.mobfilbtn {
+    display: none;
+}
+
+@media(max-width:768px) {
+    .filterSticky {
+        display: none;
+    }
+
+    .mobfilbtn {
+        display: table-caption !important;
+    }
+
+    .AllSneakersHide {
+        display: none;
+    }
+}
+
+.search-container {
+    width: 100%;
+    display: block;
+    margin: 0px -30px;
+}
+
+input#search-bar {
+    margin: 0 auto;
+    width: 70%;
+    height: 39px;
+    padding: 0 6px;
+    font-size: 0.8rem;
+    border: 1px solid #d0cfce;
+    outline: none;
+    border-radius: 7px;
+}
+
+input#search-bar:focus {
+    border: 1px solid #008abf;
+    transition: 0.35s ease;
+    color: #008abf;
+}
+
+input#search-bar:focus::-webkit-input-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+
+input#search-bar:focus::-moz-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+
+input#search-bar:focus:-ms-placeholder {
+    transition: opacity 0.45s ease;
+    opacity: 0;
+}
+
+.search-icon {
+    position: relative;
+    float: right;
+    width: 75px;
+    height: 75px;
+    top: -62px;
+    right: -45px;
+}
