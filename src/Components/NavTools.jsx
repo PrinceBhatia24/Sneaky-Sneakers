@@ -125,8 +125,7 @@ export default function NavTools() {
     const RegisterUser = async () => {
         try {
             const { name, email, password } = registerInputs;
-
-            const res = await fetch("http://localhost:5007/Registration", {
+            const res = await fetch(`${window.config.Domain}/Registration`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -166,7 +165,7 @@ export default function NavTools() {
 
     const LoginUser = async () => {
         const { email, password } = loginInputs
-        const res = await fetch("http://localhost:5007/LoginUser", {
+        const res = await fetch(`${window.config.Domain}/LoginUser`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -213,6 +212,7 @@ export default function NavTools() {
         const token = localStorage.getItem("AuthToken");
         if (token) {
             navigate(`/MyAccount`)
+
         }
         else {
             handleLoginShow();

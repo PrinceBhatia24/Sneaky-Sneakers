@@ -13,20 +13,20 @@ export default function Collections() {
     const { Sorting, GetProductByCollectionId, FilteredProducts } = FilterContext();
 
     const [searchParams] = useSearchParams();
-    const CollName = searchParams.get('CollName');
+    const Category = searchParams.get('Category');
     
     useEffect(() => {
-        if(CollName){
-            GetProductByCollectionId(CollName);
+        if(Category){
+            GetProductByCollectionId(Category);
         }
-    }, [CollName])
+    }, [Category])
     
 
     return (
         <>
             <Offcanvas />
             <MidSlider style={{ height: '402px', width: '100%', objectFit: 'cover' }} Src={"src/assets/Images/Tab_Banners_1 (1).png"} />
-            <div className='container-fluid'>
+            <div className='container'>
                 <div className='row px-3'>
                     <div className='col-lg-2 col-md-3 my-5 filterSticky px-2'>
                         <Filters />

@@ -27,7 +27,9 @@ export default function Header() {
             }} >
 
                 <NavLink to="/" className="navbar-brand justify-content-start d-flex " >
-                    <img className='img-fluid align-items-center my-1' style={{ width: '50%', }} src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`} />
+                    <img className='img-fluid align-items-center my-1' style={{ width: '50%', }}
+                        src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}// src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`} 
+                    />
                 </NavLink>
 
 

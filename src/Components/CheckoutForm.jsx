@@ -32,7 +32,8 @@ export default function CheckoutForm() {
     const OrderItem = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("http://localhost:5007/SetOrderedItems", {
+        
+        const res = await fetch(`${window.config.Domain}/SetOrderedItems`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -272,31 +273,3 @@ export default function CheckoutForm() {
     );
 }
 
-
-// {
-//     "ShippingDetail": {
-//       "email": "example@example.com",
-//       "phone": "1234567890",
-//       "firstName": "John",
-//       "lastName": "Doe",
-//       "address1": "123 Main St",
-//       "address2": "Apt 4B",
-//       "city": "New York",
-//       "state": "NY",
-//       "pincode": "10001"
-//     },
-//     "OrderDetails": [
-//       {
-//         "id": "673752b64d306c9cdd56fcc0-UK5-Red",
-//         "Category": "Sneakers",
-//         "Price": "6999",
-//         "Name": "Yeezy Foam Runner 'Onyx'",
-//         "Image": "1731410592632image (2).webp",
-//         "Size": "UK5",
-//         "Color": "Red",
-//         "Quantity": 1,
-//         "Total": 6999
-//       }
-//     ],
-//     "OrgId": "org123"
-//   }

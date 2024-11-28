@@ -7,7 +7,7 @@ import { ProductContext } from "./ProductContext";
 const FilterProvider = ({ children }) => {
 
     const { Product } = ProductContext();
-    
+
     //initial State 
     const initialstate = {
         //Common

@@ -40,7 +40,8 @@ export default function CartTable() {
                                             objectFit: 'contain',
                                             border: 'none'
                                         }}
-                                            src={`http://localhost:5007/uploads/ProductImage/${Data.Image}`}
+                                 
+                                            src={`${window.config.ProductImage}/${Data.Image}`}
                                         />
                                         <div className='mx-3 mt-4'>
                                             <p className='PName' style={{ fontSize: '18px' }}>{Data.Name}-({Data.Size})</p>

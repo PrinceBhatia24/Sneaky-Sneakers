@@ -24,11 +24,6 @@ export default function Filters() {
         }));
     };
 
-    // useEffect(() => {
-    //     GetAllCategories();
-    //     GetAllSizes();
-    //     GetAllColors();
-    // }, [])
 
     const UniqueValues = (Data, Property) => {
         let UniqueValue = Data.map((Current) => {

@@ -27,7 +27,7 @@ const ProductProvider = ({ children }) => {
     const GetAllSlider = async () => {
         dispatch({ type: "Loading" })
         try {
-            const Res = await axios.get(`http://localhost:5007/Sliderimages/${window.config.OrgId}`)
+            const Res = await axios.get(`${window.config.Domain}/Sliderimages/${window.config.OrgId}`)
             const Response = await Res.data.data;
             dispatch({
                 type: "Sliders",
@@ -46,7 +46,7 @@ const ProductProvider = ({ children }) => {
     const GetCategory = async () => {
         dispatch({ type: "Loading" })
         try {
-            const Res = await axios.get(`http://localhost:5007/CategoryImages/${window.config.OrgId}`)
+            const Res = await axios.get(`${window.config.Domain}/CategoryImages/${window.config.OrgId}`)
             const Response = await Res.data.data;
             dispatch({
                 type: "Category",
@@ -66,7 +66,7 @@ const ProductProvider = ({ children }) => {
     const GetProduct = async () => {
         dispatch({ type: "Loading" })
         try {
-            const Res = await axios.get(`http://localhost:5007/Products/${window.config.OrgId}`)
+            const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}`)
             const Response = await Res.data.data;
             dispatch({
                 type: "Products",
@@ -85,7 +85,8 @@ const ProductProvider = ({ children }) => {
     const GetProductById = async (ID) => {
         dispatch({ type: "Loading" })
         try {
-            const Res = await axios.get(`http://localhost:5007/Products/${window.config.OrgId}/${ID}`)
+            // const Res = await axios.get(`http://localhost:5007/Products/${window.config.OrgId}/${ID}`)
+            const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}/${ID}`)
             const Response = await Res.data.data;
             dispatch({
                 type: "ProductById",

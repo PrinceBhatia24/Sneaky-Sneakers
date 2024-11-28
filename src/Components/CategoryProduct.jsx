@@ -36,10 +36,12 @@ export default function CategoryProduct({ Title, Description }) {
                 <div className='container my-5'>
                     <Carousel responsive={responsive} >
                         {Category.map((Data) => {
-                            return <Link key={Data._id} to={`/Collections?CollName=${Data.CategoryName}`}>
-                                <div className='col OverFlowHidden position-relative borderradius'>  <img className="img-fluid Imgg"
-                                    src={`http://localhost:5007/uploads/CategoryImages/${Data.CategoryImage}`}
-                                    alt={Data.CategoryName} />
+                            return <Link key={Data._id} to={`/Collections?Category=${Data.CategoryName}`}>
+                                <div className='col OverFlowHidden position-relative borderradius'>
+                                    <img className="img-fluid Imgg"
+                                        src={`${window.config.CategoryImage}/${Data.CategoryImage}`}
+                                     
+                                        alt={Data.CategoryName} />
                                     <div className="image-text-overlay">{Data.CategoryName}</div>
                                 </div>
                             </Link>

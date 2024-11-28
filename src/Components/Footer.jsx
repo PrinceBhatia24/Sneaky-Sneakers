@@ -22,7 +22,8 @@ export default function Footer() {
                                     <img
                                         className="img-fluid d-flex mb-3 justify-content-start  logoimg"
                                         style={{ filter: 'invert(1)', width: '55%' }}
-                                        src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`}
+                                   
+                                        src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}
 
                                     />
                                 </Link>

@@ -12,12 +12,12 @@ export default function Cards(props) {
                         <div className="position-relative">
                             <span className="sale-badge">SALE</span>
                             <img
-                                src={`http://localhost:5007/uploads/ProductImage/${Image1}`}
-                                
+                                src={`${window.config.ProductImage}/${Image1}`}
+                                style={{ width: '85%' }}
                                 className="card-img-top"
                                 alt="Yeezy Foam Runner"
                             />
-                            
+
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{Name}</h5>

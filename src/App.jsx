@@ -11,8 +11,8 @@ import Collections from "./Pages/Collections";
 import Checkout from "./Pages/Checkout";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 import MyAccount from "./Pages/MyAccount";
-function App() {
 
+function App() {
   const Router = createBrowserRouter([
     {
       path: "/",
@@ -22,6 +22,7 @@ function App() {
           path: "/",
           element: <Homepage />
         },
+
         {
           path: "/contactus",
           element: <ContactUs />
@@ -34,7 +35,6 @@ function App() {
           path: "/Collections",
           element: <Collections />
         },
-
         {
           path: "/Product/:id",
           element: <Prooduct />
@@ -58,9 +58,10 @@ function App() {
       path: "/OrderConfirmation/:id",
       element: <OrderConfirmation />
     },
+
   ]);
+
 
   return <RouterProvider router={Router} future={{ v7_startTransition: true }} />
 };
-
 export default App
