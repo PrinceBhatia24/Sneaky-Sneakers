@@ -13,7 +13,7 @@ export default function Prooduct() {
 
     const { GetProductById, SingleProduct } = ProductContext()
     const { Name, Category, Colour, Description, Discount, Image1, Price, Review, SalePrice, Size, UniqueId, _id } = SingleProduct
-    const { AddToCart } = CartContext();
+    const { AddToCart, BuyNow } = CartContext();
 
 
 
@@ -37,7 +37,7 @@ export default function Prooduct() {
                 Quantity: Detail.Quantity - 1
             });
         }
-        
+
     };
     const handleSizeClick = (size) => {
         setDetail({
@@ -69,7 +69,7 @@ export default function Prooduct() {
 
     return (
         <>
-            <div className='container test'>
+            <div className='container test my-5'>
                 <div className='row'>
                     <div className='col-lg-6 col-md-12 col-sm-12 col-12'>
                         <Carousel data-bs-theme="dark" className='carousel-container'>
@@ -89,11 +89,11 @@ export default function Prooduct() {
                     </div>
                     <div className='col-lg-6 col-md-12 col-sm-12 col-12'>
                         <div className="prod_details_right_col_001">
-                        <h4 className="prod_details_info my-2"> {Category}</h4>
+                            <h4 className="prod_details_info my-2"> {Category}</h4>
                             <h1 className="prod_details_title">
                                 {Name}
                             </h1>
-                            
+
                             {/* <StarRating rating={3} /> */}
                             <div className="prod_details_price">
                                 <div className="price_box">
@@ -180,13 +180,19 @@ export default function Prooduct() {
                                                 style={{
                                                     fontSize: '17px',
                                                     padding: '8px 34px'
-                                                }} onClick={() => AddToCart(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)} className="btn productbtn border-dark bg-dark text-white">Add To Cart</a>
+                                                }}
+                                                onClick={() => AddToCart(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
+                                                className="btn productbtn border-dark bg-dark text-white">Add To Cart</a>
                                         </li>
                                         <li className='p-0 border-0'>
-                                            <button style={{
-                                                fontSize: '17px',
-                                                padding: '8px 34px'
-                                            }} className="btn productbtn border-dark bg-dark text-white">Buy Now</button>
+                                            <Link
+                                                to="/Checkout"
+                                                style={{
+                                                    fontSize: '17px',
+                                                    padding: '8px 34px'
+                                                }} className="btn productbtn border-dark bg-dark text-white"
+                                                onClick={() => BuyNow(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
+                                            >Buy Now</Link>
                                         </li>
 
                                     </ul>

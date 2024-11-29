@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
-import Offcanvas from './Offcanvas';
 import { Link } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
-import { CiUser } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
 import Modal from 'react-bootstrap/Modal';
 import { FilterContext } from '../Context/FilterContext';
 import { CompanyDetailsContext } from '../Context/ComapnyDetailsContext';
@@ -12,6 +9,7 @@ import FormatPrice from '../Helpers/FormatPrice'
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaUser, FaShoppingCart } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import EmptyCart from './EmptyCart';
 
 
 export default function NavTools() {
@@ -209,15 +207,26 @@ export default function NavTools() {
     const handleLoginShow = () => setShow2(true);
 
     const handleLoginNavigation = () => {
+
         const token = localStorage.getItem("AuthToken");
         if (token) {
-            navigate(`/MyAccount`)
-
+            // navigate(`/MyAccount`)
+            window.location.href = "/MyAccount";
         }
         else {
             handleLoginShow();
         }
     };
+    const highlightText = (text, searchTerm) => {
+        if (!searchTerm) return text;
+        const regex = new RegExp(`(${searchTerm})`, 'gi'); // Case-insensitive match
+        return text.split(regex).map((part, index) =>
+            regex.test(part) ? <span key={index} className="highlight">{part}</span> : part
+        );
+    };
+
+
+    
 
     return (
         <>
@@ -258,29 +267,38 @@ export default function NavTools() {
                     position: 'relative',
                     top: '50px',
                     backgroundColor: '#ffffff',
-                    maxHeight: '287px',
-                    overflowY: 'scroll'
+                    maxHeight: '390px',
+                    overflowY: 'scroll',
+                    justifyContent: 'center'
                 }} className='mt-3'>
-                    {FilteredProducts.map((Data, index) => {
-                        return <Link show={show} key={{ index }} onClick={handleClose} to={`/Product/${Data._id}`}>
-                            <div className="row mb-4">
-                                <div className="col-2 position-relative py-1">
-                                    <img
-                                        className="img-fluid CartImg"
-                                        src={`http://localhost:5007/uploads/ProductImage/${Data.Image1}`}
-                                        style={{ height: "100%", objectFit: "contain", border: "none" }}
-                                    />
-                                </div>
-                                <div className="col-10 mt-3">
-                                    <a href="/Product/6737530a4d306c9cdd56fcc5">
-                                        <p className="PName">{Data.Name}</p>
-                                        <p className="PriceList mt-2 mx-1">{<FormatPrice Price={Data.SalePrice} />}</p>
-                                    </a>
+                    {FilteredProducts.length > 0 ? (
+                        FilteredProducts.map((Data, index) => {
+                            return <Link show={show} key={{ index }} onClick={handleClose} to={`/Product/${Data._id}`}>
+                                <div className="row mb-4">
+                                    <div className="col-2 position-relative py-1">
+                                        <img
+                                            className="img-fluid CartImg"
+                                            src={`http://localhost:5007/uploads/ProductImage/${Data.Image1}`}
+                                            style={{ height: "100%", objectFit: "contain", border: "none" }}
+                                        />
+                                    </div>
+                                    <div className="col-10 mt-3">
+                                        <a href="/Product/6737530a4d306c9cdd56fcc5">
+                                            <p className="PName">
+                                                {/* {Data.Name} */}
+                                                {highlightText(Data.Name, Search)}
+                                            </p>
 
+                                            <p className="PriceList mt-2 mx-1">{<FormatPrice Price={Data.SalePrice} />}</p>
+                                        </a>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    })}
+                            </Link>
+                        })
+                    ) : (
+                        <EmptyCart Title="No Product Found" />
+                    )}
                 </Modal.Footer>
 
             </Modal >

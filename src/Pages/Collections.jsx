@@ -8,25 +8,26 @@ import { VscSettings } from "react-icons/vsc";
 import Offcanvas from '../Components/Offcanvas';
 import { FilterContext } from '../Context/FilterContext';
 import { useSearchParams } from 'react-router-dom';
+import EmptyCart from '../Components/EmptyCart';
 
 export default function Collections() {
     const { Sorting, GetProductByCollectionId, FilteredProducts } = FilterContext();
 
     const [searchParams] = useSearchParams();
     const Category = searchParams.get('Category');
-    
+
     useEffect(() => {
-        if(Category){
+        if (Category) {
             GetProductByCollectionId(Category);
         }
     }, [Category])
-    
+
 
     return (
         <>
             <Offcanvas />
             <MidSlider style={{ height: '402px', width: '100%', objectFit: 'cover' }} Src={"src/assets/Images/Tab_Banners_1 (1).png"} />
-            <div className='container'>
+            <div className='container-fluid'>
                 <div className='row px-3'>
                     <div className='col-lg-2 col-md-3 my-5 filterSticky px-2'>
                         <Filters />
@@ -41,12 +42,9 @@ export default function Collections() {
                                         <VscSettings />
                                         <span className='mx-1'> Filter</span>
                                     </div>
-
                                 </a>
-
                             </div>
                             <div className='col-lg-3 col-md-3 col-sm-3 col-3 card-grd my-1'>
-
                                 <Form.Select size="sm" id="Sort" onChange={Sorting} aria-label="Default select example">
                                     <option>Sort By</option>
                                     <option value="Lowest">Price: Low To High</option>
@@ -58,12 +56,15 @@ export default function Collections() {
 
 
                         </div>
-                        <div className='row'>
-                            {FilteredProducts.map((Data) => {
-                                return <div key={Data._id} className='col-lg-3 col-md-4 col-sm-6 col-6 card-grd my-3'>
-                                    <Cards Data={Data} />
-                                </div>
-                            })}
+                        <div className="card-grid my-5">
+                            {FilteredProducts.length > 0 ? (
+                                FilteredProducts.map((Data, index) => {
+                                    return <Cards key={Data._id} Data={Data} />
+                                })
+                            ) : (
+                                <EmptyCart Title="No Product Found" />
+
+                            )}
                         </div>
                     </div>
                 </div>

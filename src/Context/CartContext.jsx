@@ -10,7 +10,7 @@ const CartProvider = ({ children }) => {
         TotalPrice: "",
         CartTotal: "",
         ShippingCharges: 299,
-        
+
     }
 
     const [state, dispatch] = useReducer(CartReducer, initialState)
@@ -19,6 +19,12 @@ const CartProvider = ({ children }) => {
         dispatch({ type: 'ADD_TO_CART', payload: { id, Size, Color, Quantity, SingleProduct } });
 
     }
+
+    const BuyNow = (id, Size, Color, Quantity, SingleProduct) => {
+        dispatch({ type: 'BUY_NOW', payload: { id, Size, Color, Quantity, SingleProduct } });
+
+    }
+
 
 
     const handleDecrement = (id) => {
@@ -32,7 +38,7 @@ const CartProvider = ({ children }) => {
         dispatch({ type: 'DeleteCart', payload: id });
     }
 
-    return <AppContext4.Provider value={{ ...state, AddToCart, DeleteProduct, handleIncrement, handleDecrement }}>
+    return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement }}>
         {children}
     </AppContext4.Provider >
 

@@ -55,6 +55,39 @@ const CartReducer = (state, action) => {
                 TotalItem: totalItems,
                 CartTotal: totalPrice
             };
+        case "BUY_NOW":
+            let compoundIdBuyNow = action.payload.id + "-" + action.payload.Size + "-" + action.payload.Color;
+            
+            // Create the new cart with only the product the user wants to purchase immediately
+            let productInCart = {
+                id: compoundIdBuyNow,
+                Category: action.payload.SingleProduct.Category,
+                Price: action.payload.SingleProduct.SalePrice,
+                Name: action.payload.SingleProduct.Name,
+                Image: action.payload.SingleProduct.Image1,
+                Size:action.payload.Size,
+                Color:action.payload.Color,
+                Quantity:action.payload.Quantity,
+                Total: action.payload.SingleProduct.SalePrice * action.payload.Quantity,
+            };
+
+            // Create a new cart with just this one product, reset totals
+            let updatedCartBuyNow = [productInCart];
+
+            // Calculate the total number of items in the cart and the total price
+            let totalItemsBuyNow = updatedCartBuyNow.length;
+            let totalPriceBuyNow = updatedCartBuyNow.reduce(
+                (total, item) => total + item.Total,
+                0
+            );
+
+            // Return the updated state with the "BUY_NOW" logic
+            return {
+                ...state,
+                Cart: updatedCartBuyNow,
+                TotalItem: totalItemsBuyNow,
+                CartTotal: totalPriceBuyNow,
+            };
 
         case "DeleteCart":
             const productIdToDelete = action.payload;
