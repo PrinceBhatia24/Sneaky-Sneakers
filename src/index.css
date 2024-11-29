@@ -724,6 +724,7 @@ table {
 #LoginModal .modal-content {
   height: 100% !important;
   border-radius: 9px;
+  overflow: hidden;
 
 }
 
@@ -884,7 +885,7 @@ table {
 
 .card-container {
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .card {

@@ -57,7 +57,7 @@ const CartReducer = (state, action) => {
             };
         case "BUY_NOW":
             let compoundIdBuyNow = action.payload.id + "-" + action.payload.Size + "-" + action.payload.Color;
-            
+
             // Create the new cart with only the product the user wants to purchase immediately
             let productInCart = {
                 id: compoundIdBuyNow,
@@ -65,9 +65,9 @@ const CartReducer = (state, action) => {
                 Price: action.payload.SingleProduct.SalePrice,
                 Name: action.payload.SingleProduct.Name,
                 Image: action.payload.SingleProduct.Image1,
-                Size:action.payload.Size,
-                Color:action.payload.Color,
-                Quantity:action.payload.Quantity,
+                Size: action.payload.Size,
+                Color: action.payload.Color,
+                Quantity: action.payload.Quantity,
                 Total: action.payload.SingleProduct.SalePrice * action.payload.Quantity,
             };
 
@@ -84,6 +84,7 @@ const CartReducer = (state, action) => {
             // Return the updated state with the "BUY_NOW" logic
             return {
                 ...state,
+                ProductID: action.payload.SingleProduct._id,
                 Cart: updatedCartBuyNow,
                 TotalItem: totalItemsBuyNow,
                 CartTotal: totalPriceBuyNow,

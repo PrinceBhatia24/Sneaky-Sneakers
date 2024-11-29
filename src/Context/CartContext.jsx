@@ -25,8 +25,6 @@ const CartProvider = ({ children }) => {
 
     }
 
-
-
     const handleDecrement = (id) => {
         dispatch({ type: 'QuantityDecrease', payload: id });
 

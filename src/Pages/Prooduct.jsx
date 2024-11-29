@@ -59,7 +59,7 @@ export default function Prooduct() {
         setDetail((prevDetail) => ({
             ...prevDetail,
             Size: Array.isArray(Size) && Size.length > 0 ? Size[0] : null,
-            Color: Array.isArray(Colour) && Colour.length > 0 ? Colour[0] : null
+            // Color: Array.isArray(Colour) && Colour.length > 0 ? Colour[0] : null
         }));
     }, [SingleProduct, Size, Colour]);
 
@@ -84,6 +84,17 @@ export default function Prooduct() {
                                 </Link>
 
                             </Carousel.Item>
+                            <Carousel.Item >
+                                <Link to="">
+                                    <img
+                                        style={{ objectFit: "cover", height: "100%" }}
+                                        className="d-block w-100"
+                                        src={`http://localhost:5007/uploads/ProductImage/${Image1}`}
+
+                                    />
+                                </Link>
+
+                            </Carousel.Item>
 
                         </Carousel>
                     </div>
@@ -94,37 +105,22 @@ export default function Prooduct() {
                                 {Name}
                             </h1>
 
-                            {/* <StarRating rating={3} /> */}
+                            <StarRating rating={3} />
                             <div className="prod_details_price">
                                 <div className="price_box">
                                     <h2 className="price">
                                         {<FormatPrice Price={SalePrice} />} &nbsp;
                                         <small className="del_price">
-                                            {/* <del>
-                                                {<FormatPrice Price={Price} />}
-                                            </del> */}
+
                                         </small>
                                     </h2>
-                                    {/* <p className="saved_price">You save: ₹4,200 (35%)</p> */}
+
                                     <span className="tax_txt">(Inclusive of all taxes)</span>
                                 </div>
-                                {/* <div className="badge">
-                                    <span className="instock">
-                                        <svg
-                                            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
-                                            focusable="false"
-                                            aria-hidden="true"
-                                            viewBox="0 0 24 24"
-                                            data-testid="DoneIcon"
-                                        >
-                                            <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-                                        </svg>{" "}
-                                        In Stock
-                                    </span>
-                                </div> */}
+
                             </div>
                             <div className="seprator2" />
-                            <div className="productDescription">
+                            {/* <div className="productDescription">
                                 <div className="prod_details_offers">
                                     <h4 className='my-3'>Color: {Detail.Color}</h4>
                                     <ul className='m-0'>
@@ -142,7 +138,7 @@ export default function Prooduct() {
                                     </ul>
                                 </div>
 
-                            </div>
+                            </div> */}
                             <div className="productDescription">
                                 <div className="prod_details_offers">
                                     <h4 className='my-3'>Sizes: {Detail.Size}</h4>
@@ -179,7 +175,7 @@ export default function Prooduct() {
                                                 href="#offcanvasCart"
                                                 style={{
                                                     fontSize: '17px',
-                                                    padding: '8px 34px'
+                                                    padding: '8px 20px'
                                                 }}
                                                 onClick={() => AddToCart(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
                                                 className="btn productbtn border-dark bg-dark text-white">Add To Cart</a>
@@ -189,7 +185,7 @@ export default function Prooduct() {
                                                 to="/Checkout"
                                                 style={{
                                                     fontSize: '17px',
-                                                    padding: '8px 34px'
+                                                    padding: '8px 20px'
                                                 }} className="btn productbtn border-dark bg-dark text-white"
                                                 onClick={() => BuyNow(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
                                             >Buy Now</Link>

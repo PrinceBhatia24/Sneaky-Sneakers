@@ -307,11 +307,11 @@ export default function NavTools() {
             <Modal id="LoginModal" show={show2} onHide={handleClose2} centered>
                 <Modal.Body className='p-0' >
                     <div className="container-fluid">
-                        <div className="row">
+                        <div className="row ">
 
                             <div className="col-md-6 image-section" />
 
-                            <div className="col-md-6 form-section">
+                            <div className="col-md-6 form-section p-2">
                                 <div className="form-container text-center">
 
                                     <img className='img-fluid align-items-center my-3   ' style={{ width: '35%', }} src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`} />

@@ -9,7 +9,6 @@ import EmptyCart from './EmptyCart';
 
 export default function Offcanvas() {
     const { Cart, TotalItem, CartTotal, ProductID, DeleteProduct } = CartContext();
-
     return (
         <div>
             <div className="offcanvas offcanvas-end customoffcanvas" style={{ height: '97vh' }} tabIndex="-1" id="offcanvasCart" aria-labelledby="offcanvasExampleLabel">
@@ -68,10 +67,10 @@ export default function Offcanvas() {
 function OffCanvasCard(props) {
     const { Name, Image, Quantity, Price, Color, Size, id, Total } = props.Data
 
-    const {DeleteProduct, handleDecrement, handleIncrement } = CartContext();
-    const { QuantityShow,ProductID } = props
-    // console.log(props);
-    
+    const { ProductID, handleDecrement, handleIncrement } = CartContext();
+    const { QuantityShow } = props
+
+
 
     return (
         <div className='row mb-5'>
