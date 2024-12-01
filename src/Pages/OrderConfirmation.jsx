@@ -7,7 +7,7 @@ export default function OrderConfirmation() {
     const { id } = useParams()
 
     const ConfirmationMail = async () => {
-        const res = await fetch(`http://localhost:5007/OrderConfirmationMail/${id}`, {
+        const res = await fetch(`${window.config.Domain}/OrderConfirmationMail/${id}`, {
             method: "GET",
             headers: {
                 "content-type": "application/json"
@@ -34,7 +34,9 @@ export default function OrderConfirmation() {
                 <div className="container text-center py-5 ">
                     {/* Logo */}
                     <div className="mb-4">
-                        <img style={{ width: '15%' }} src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`} />
+                        <img style={{ width: '15%' }}
+                            src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}
+                        />
                     </div>
 
                     {/* Thanks Message */}

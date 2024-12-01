@@ -85,7 +85,7 @@ const ProductProvider = ({ children }) => {
     const GetProductById = async (ID) => {
         dispatch({ type: "Loading" })
         try {
-            // const Res = await axios.get(`http://localhost:5007/Products/${window.config.OrgId}/${ID}`)
+         
             const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}/${ID}`)
             const Response = await Res.data.data;
             dispatch({

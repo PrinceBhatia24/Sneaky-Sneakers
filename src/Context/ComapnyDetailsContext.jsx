@@ -18,7 +18,7 @@ const CompanyDetailsProvider = ({ children }) => {
     const GetCompanyDetials = async () => {
         dispatch({ type: "Loading" })
         try {
-            // const Res = await axios.get(`http://localhost:5007/CompanyDetailsData/${window.config.OrgId}`)
+       
             const Res = await axios.get(`${window.config.Domain}/CompanyDetailsData/${window.config.OrgId}`)
             const Response = await Res.data.data;
             // console.log(Response);

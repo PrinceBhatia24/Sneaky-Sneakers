@@ -226,7 +226,7 @@ export default function NavTools() {
     };
 
 
-    
+
 
     return (
         <>
@@ -278,7 +278,7 @@ export default function NavTools() {
                                     <div className="col-2 position-relative py-1">
                                         <img
                                             className="img-fluid CartImg"
-                                            src={`http://localhost:5007/uploads/ProductImage/${Data.Image1}`}
+                                            src={`${window.config.ProductImage}/${Data.Image1}`}
                                             style={{ height: "100%", objectFit: "contain", border: "none" }}
                                         />
                                     </div>
@@ -314,7 +314,10 @@ export default function NavTools() {
                             <div className="col-md-6 form-section p-2">
                                 <div className="form-container text-center">
 
-                                    <img className='img-fluid align-items-center my-3   ' style={{ width: '35%', }} src={`http://localhost:5007/uploads/CompanyLogo/${CompanyDetails.logo}`} />
+                                    <img className='img-fluid align-items-center my-3   ' style={{ width: '35%', }}
+                                        src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}
+                                    />
+
                                     {!isRegister ? (
                                         // Login Form
                                         <>

@@ -78,7 +78,7 @@ export default function Prooduct() {
                                     <img
                                         style={{ objectFit: "cover", height: "100%" }}
                                         className="d-block w-100"
-                                        src={`http://localhost:5007/uploads/ProductImage/${Image1}`}
+                                        src={`${window.config.ProductImage}/${Image1}`}
 
                                     />
                                 </Link>
@@ -89,7 +89,7 @@ export default function Prooduct() {
                                     <img
                                         style={{ objectFit: "cover", height: "100%" }}
                                         className="d-block w-100"
-                                        src={`http://localhost:5007/uploads/ProductImage/${Image1}`}
+                                        src={`${window.config.ProductImage}/${Image1}`}
 
                                     />
                                 </Link>
