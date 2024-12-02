@@ -76,7 +76,7 @@ export default function Prooduct() {
                             <Carousel.Item >
                                 <Link to="">
                                     <img
-                                        style={{ objectFit: "cover", height: "100%" }}
+                                        style={{ objectFit: "cover", height: "80%" }}
                                         className="d-block w-100"
                                         src={`${window.config.ProductImage}/${Image1}`}
 
@@ -87,7 +87,7 @@ export default function Prooduct() {
                             <Carousel.Item >
                                 <Link to="">
                                     <img
-                                        style={{ objectFit: "cover", height: "100%" }}
+                                        style={{ objectFit: "cover", height: "80%" }}
                                         className="d-block w-100"
                                         src={`${window.config.ProductImage}/${Image1}`}
 

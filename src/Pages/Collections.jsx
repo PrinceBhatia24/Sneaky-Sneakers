@@ -28,7 +28,7 @@ export default function Collections() {
             <Offcanvas />
             <MidSlider style={{ height: '402px', width: '100%', objectFit: 'cover' }} Src={"src/assets/Images/Tab_Banners_1 (1).png"} />
             <div className='container-fluid'>
-                <div className='row px-3'>
+                <div className='row px-0'>
                     <div className='col-lg-2 col-md-3 my-5 filterSticky px-2'>
                         <Filters />
                     </div>

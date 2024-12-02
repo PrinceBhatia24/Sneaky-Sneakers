@@ -9,7 +9,7 @@ import FormatPrice from '../Helpers/FormatPrice';
 export default function Checkout() {
     const { Cart, TotalItem, CartTotal, ProductID, ShippingCharges } = CartContext();
     const TotalPayable = ShippingCharges + CartTotal
-    
+
     const navigate = useNavigate();
     useEffect(() => {
         if (Cart.length === 0) {

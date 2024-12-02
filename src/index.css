@@ -19,6 +19,10 @@ li {
   line-height: 1.5;
   font-weight: 400;
   list-style-type: none;
+
+}
+.react-multi-carousel-track  li{
+  flex: 1 0 auto!important;
 }
 
 
@@ -909,7 +913,7 @@ table {
 }
 
 .card-body {
-  padding: 15px;
+  padding: 0px!important;
   text-align: center;
 }
 
@@ -924,4 +928,8 @@ table {
   border-radius: 5px;
 }
 
+
+.carousel-indicators {
+  bottom: -41px!important;
+}
 

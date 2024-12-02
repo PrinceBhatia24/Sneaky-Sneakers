@@ -73,7 +73,7 @@ function OffCanvasCard(props) {
 
 
     return (
-        <div className='row mb-5'>
+        <div className='row mb-5' style={{width:'100%'}}>
             <div className='col-3 position-relative py-1'>
                 <img className='img-fluid CartImg'
                     style={{
