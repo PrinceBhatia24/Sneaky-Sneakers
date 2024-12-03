@@ -73,12 +73,13 @@ function OffCanvasCard(props) {
 
 
     return (
-        <div className='row mb-5' style={{width:'100%'}}>
-            <div className='col-3 position-relative py-1'>
+        <div className='row mb-5' style={{ width: '100%' }}>
+            <div className='col-3 position-relative py-1 d-grid' style={{ placeItems: 'center', }}>
                 <img className='img-fluid CartImg'
                     style={{
+                        height: '100%',
                         objectFit: 'contain',
-                        border: 'none'
+                        border: 'none',
                     }}
 
                     src={`${window.config.ProductImage}/${Image}`}

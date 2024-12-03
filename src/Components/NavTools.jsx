@@ -275,11 +275,11 @@ export default function NavTools() {
                         FilteredProducts.map((Data, index) => {
                             return <Link show={show} key={{ index }} onClick={handleClose} to={`/Product/${Data._id}`}>
                                 <div className="row mb-4">
-                                    <div className="col-2 position-relative py-1">
+                                    <div className="col-2 position-relative py-1 d-grid" style={{ placeItems: 'center', }}>
                                         <img
                                             className="img-fluid CartImg"
                                             src={`${window.config.ProductImage}/${Data.Image1}`}
-                                            style={{ height: "100%", objectFit: "contain", border: "none" }}
+                                            style={{ objectFit: "contain", border: "none" }}
                                         />
                                     </div>
                                     <div className="col-10 mt-3">
@@ -309,7 +309,7 @@ export default function NavTools() {
                     <div className="container-fluid">
                         <div className="row ">
 
-                            <div className="col-md-6 image-section" />
+                            <div className="col-md-6 image-section imghide" />
 
                             <div className="col-md-6 form-section p-2">
                                 <div className="form-container text-center">
