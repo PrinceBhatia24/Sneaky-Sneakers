@@ -15,7 +15,7 @@ export default function Header() {
     return (
         <>
             <p style={{ fontSize: '0.7rem' }} className='py-2 m-0 bg-dark text-white text-center px-2'>{CompanyDetails.title}</p>
-            <nav className="navbar navbar-expand-lg navbar-light position-sticky px-3"
+            <nav className="navbar navbar-expand-lg navbar-light position-sticky"
                 style={{
                     borderBottom: "1px solid #ffffff",
                     top: 0,

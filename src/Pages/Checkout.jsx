@@ -28,7 +28,7 @@ export default function Checkout() {
                         <h5 className='text-start mb-5'>Shipping Details</h5>
                         <CheckoutForm />
                     </div>
-                    <div className='col-lg-6 col-md-12 col-sm-12 col-12 py-3 px-3' style={{
+                    <div className='col-lg-6 col-md-12 col-sm-12 col-12 py-3 px-2' style={{
                         backgroundColor: '#fafafa', borderRadius: '6px'
                     }} >
                         <h5 className='text-start'>Your Order</h5>

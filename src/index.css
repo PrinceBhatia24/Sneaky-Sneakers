@@ -783,12 +783,12 @@ table {
   }
 
   .card:hover {
-    transform: none!important;
+    transform: none !important;
   }
 
   .card:hover {
-    transform: none!important;
-    box-shadow: none!important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
 }
@@ -823,6 +823,7 @@ table {
 
 .navbar {
   height: 70px;
+  padding: 0px 20px !important;
 }
 
 .navbar-toggler {
@@ -847,10 +848,20 @@ table {
   margin-right: 0px;
 }
 
+@media (max-width: 320px) {
+  .navbar {
+    padding: 0px 0px !important;
+  }
+.navbar-tools{
+  width: 34%;
+}
+}
+
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
   }
+
 
   .navbar-brand {
     width: auto;
