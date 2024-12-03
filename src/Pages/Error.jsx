@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../assets/CSS/Error.css"
 import { Link } from 'react-router-dom';
 
 export default function Error() {
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
         <>
             <section className="page_404">

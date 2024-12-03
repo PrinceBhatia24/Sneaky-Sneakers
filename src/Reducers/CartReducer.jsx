@@ -3,6 +3,7 @@ const CartReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
 
+
             let { id, Size, Color, Quantity, SingleProduct } = action.payload;
 
             // Create a unique identifier for the product by combining the product ID, Size, and Color
@@ -48,6 +49,7 @@ const CartReducer = (state, action) => {
                 (total, item) => total + item.Total,
                 0
             );
+
             return {
                 ...state,
                 ProductID: SingleProduct._id,
@@ -55,6 +57,7 @@ const CartReducer = (state, action) => {
                 TotalItem: totalItems,
                 CartTotal: totalPrice
             };
+
         case "BUY_NOW":
             let compoundIdBuyNow = action.payload.id + "-" + action.payload.Size + "-" + action.payload.Color;
 
@@ -108,8 +111,6 @@ const CartReducer = (state, action) => {
                 CartTotal: totalPrices
             };
 
-
-
         case "QuantityIncrease":
             const Productid = action.payload;
             // Create a new cart array with the updated product
@@ -135,7 +136,6 @@ const CartReducer = (state, action) => {
                 TotalItem: totalItemss,
                 CartTotal: totalPricee,
             };
-
 
         case "QuantityDecrease":
             const ProductidDec = action.payload;
@@ -187,7 +187,13 @@ const CartReducer = (state, action) => {
 
 
             }
+        case 'SET_CART':
+            return {
+                ...state,
+                ...action.payload,
+            };
     }
+
 }
 
 export default CartReducer

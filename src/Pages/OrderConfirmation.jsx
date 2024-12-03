@@ -34,7 +34,7 @@ export default function OrderConfirmation() {
                 <div className="container text-center py-5 ">
                     {/* Logo */}
                     <div className="mb-4">
-                        <img style={{ width: '15%' }}
+                        <img style={{ width: '20%' }}
                             src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}
                         />
                     </div>
@@ -42,12 +42,12 @@ export default function OrderConfirmation() {
                     {/* Thanks Message */}
                     <div className="mb-4">
 
-                        <img style={{ width: '60%' }} src="https://d3k81ch9hvuctc.cloudfront.net/company/bVvvBe/images/5fdf112d-9b22-412a-8546-da9d2240489d.jpeg"></img>
+                        <img style={{ width: '40%' }} src="https://d3k81ch9hvuctc.cloudfront.net/company/bVvvBe/images/5fdf112d-9b22-412a-8546-da9d2240489d.jpeg"></img>
                         <p className="text-muted my-2">Hey Prince,</p>
                     </div>
 
                     {/* Order Details */}
-                    <p className="mb-3">
+                    <p className="mb-3" style={{ fontSize: '14px' }}>
                         Your HyperFly order
                         <span className="text-danger fw-bold"> R123456789 </span>
                         has successfully been placed. You'll find all the details about your order below, and we'll send you a shipping confirmation email as soon as your order ships. In the meantime, you can Check Our New Collections

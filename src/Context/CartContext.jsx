@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react"
+import { createContext, useContext, useEffect, useReducer } from "react"
 import CartReducer from "../Reducers/CartReducer";
 const AppContext4 = createContext();
 
@@ -31,10 +31,69 @@ const CartProvider = ({ children }) => {
     }
     const handleIncrement = (id) => {
         dispatch({ type: 'QuantityIncrease', payload: id });
+
     }
     const DeleteProduct = (id) => {
         dispatch({ type: 'DeleteCart', payload: id });
+
     }
+
+    const ADDCART = async () => {
+        try {
+            const UserId = localStorage.getItem("UserId")
+            const cartData = state
+            const response = await fetch(`${window.config.Domain}/AddToCart/${window.config.OrgId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cartData,
+                    CartId: window.config.OrgId,
+                    UserId
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save cart to database');
+            }
+
+
+            const data = await response.json();
+            // console.log('Cart saved successfully:', data);
+        } catch (error) {
+            // console.error('Error saving cart:', error);
+        }
+    }
+    const fetchCartData = async () => {
+        try {
+            const UserId = localStorage.getItem("UserId");
+            const response = await fetch(`${window.config.Domain}/GetCart/${window.config.OrgId}/${UserId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+        
+            if (!response.ok) {
+                throw new Error('Failed to fetch cart data');
+            }
+
+            const data = await response.json();
+
+            // Dispatch action to update state with fetched data
+            dispatch({ type: 'SET_CART', payload: data });
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+        }
+    };
+    useEffect(() => {
+        fetchCartData()
+    }, [])
+    useEffect(() => {
+        ADDCART()
+    }, [initialState])
 
     return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement }}>
         {children}

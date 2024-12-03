@@ -12,7 +12,10 @@ export default function Checkout() {
 
     const navigate = useNavigate();
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (Cart.length === 0) {
+            // console.log(Cart);
+            
             navigate('/Collections');
         }
     }, [Cart, navigate]);

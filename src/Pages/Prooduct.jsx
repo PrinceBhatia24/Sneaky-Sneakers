@@ -56,6 +56,7 @@ export default function Prooduct() {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         setDetail((prevDetail) => ({
             ...prevDetail,
             Size: Array.isArray(Size) && Size.length > 0 ? Size[0] : null,
@@ -175,7 +176,7 @@ export default function Prooduct() {
                                                 href="#offcanvasCart"
                                                 style={{
                                                     fontSize: '17px',
-                                                    padding: '8px 20px'
+                                                    padding: '8px 9px'
                                                 }}
                                                 onClick={() => AddToCart(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
                                                 className="btn productbtn border-dark bg-dark text-white">Add To Cart</a>
@@ -185,7 +186,7 @@ export default function Prooduct() {
                                                 to="/Checkout"
                                                 style={{
                                                     fontSize: '17px',
-                                                    padding: '8px 20px'
+                                                    padding: '8px 9px'
                                                 }} className="btn productbtn border-dark bg-dark text-white"
                                                 onClick={() => BuyNow(id, Detail.Size, Detail.Color, Detail.Quantity, SingleProduct)}
                                             >Buy Now</Link>

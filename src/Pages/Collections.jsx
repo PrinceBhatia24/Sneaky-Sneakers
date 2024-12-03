@@ -17,16 +17,18 @@ export default function Collections() {
     const Category = searchParams.get('Category');
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (Category) {
             GetProductByCollectionId(Category);
         }
+
     }, [Category])
 
 
     return (
         <>
             <Offcanvas />
-            <MidSlider style={{ height: '402px', width: '100%', objectFit: 'cover' }} Src={"src/assets/Images/Tab_Banners_1 (1).png"} />
+            <MidSlider style={{ height: '402px', width: '100%', objectFit: 'cover' }} Src={"https://hypefly.co.in/_next/image?url=https%3A%2F%2Fdjm0962033frr.cloudfront.net%2FALL_SNEAKERS_142c1e9b0a.webp&w=3840&q=75"} />
             <div className='container-fluid'>
                 <div className='row px-0'>
                     <div className='col-lg-2 col-md-3 my-5 filterSticky px-2'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Cards from '../Components/Cards'
 import FeaturedProduct from '../Components/FeaturedProduct'
 import CategoryProduct from '../Components/CategoryProduct'
@@ -8,6 +8,9 @@ import MidSlider from '../Components/MidSlider'
 
 
 export default function Homepage() {
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
         <>
             <SliderCaresoul />

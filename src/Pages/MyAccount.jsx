@@ -12,10 +12,12 @@ export default function MyAccount() {
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem("AuthToken");
+        localStorage.removeItem("UserId");
         navigate(`/`)
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         // Check for auth token in localStorage
         const token = localStorage.getItem("AuthToken");
         if (!token) {

@@ -234,7 +234,7 @@ footer-payment-icon ul li {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(2, 1fr);
-  padding: 15px;
+  /* padding: 15px; */
   /* width: 10rem; */
 }
 
@@ -285,10 +285,7 @@ footer-payment-icon ul li {
 
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
+
 
 .card-img-top {
   width: 100%;
@@ -784,6 +781,16 @@ table {
   .imghide {
     display: none;
   }
+
+  .card:hover {
+    transform: none!important;
+  }
+
+  .card:hover {
+    transform: none!important;
+    box-shadow: none!important;
+  }
+
 }
 
 .MyAccLi {
@@ -815,7 +822,7 @@ table {
 }
 
 .navbar {
-  height: 60px;
+  height: 70px;
 }
 
 .navbar-toggler {
@@ -912,6 +919,11 @@ table {
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card img {

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartTable from '../Components/CartTable'
 import { CartContext } from '../Context/CartContext';
 import FormatPrice from '../Helpers/FormatPrice';
 
 export default function Cart() {
     const { Cart, TotalItem, TotalPrice, ProductID, DeleteProduct } = CartContext();
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
         <>
             <div className='container my-5'>

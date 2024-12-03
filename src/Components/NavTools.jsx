@@ -181,6 +181,7 @@ export default function NavTools() {
 
         else if (res.status === 200) {
             localStorage.setItem("AuthToken", data.token);
+            localStorage.setItem("UserId", data.UserId);
             navigate(`/MyAccount`)
             handleClose2();
             setLoginInputs({

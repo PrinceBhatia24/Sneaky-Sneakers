@@ -8,7 +8,7 @@ import EmptyCart from './EmptyCart';
 
 
 export default function Offcanvas() {
-    const { Cart, TotalItem, CartTotal, ProductID, DeleteProduct } = CartContext();
+    const { Cart, TotalItem, CartTotal, ProductID } = CartContext();
     return (
         <div>
             <div className="offcanvas offcanvas-end customoffcanvas" style={{ height: '97vh' }} tabIndex="-1" id="offcanvasCart" aria-labelledby="offcanvasExampleLabel">
