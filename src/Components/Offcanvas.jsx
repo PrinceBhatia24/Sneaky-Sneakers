@@ -77,7 +77,7 @@ function OffCanvasCard(props) {
             <div className='col-3 position-relative py-1 d-grid' style={{ placeItems: 'center', }}>
                 <img className='img-fluid CartImg'
                     style={{
-                        height: '100%',
+                        // height: '100%',
                         objectFit: 'contain',
                         border: 'none',
                     }}
