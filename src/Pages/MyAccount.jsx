@@ -7,12 +7,17 @@ import { CiSettings } from "react-icons/ci";
 import { IoExitOutline } from "react-icons/io5";
 import { IoHomeOutline } from "react-icons/io5";
 import CartTable from '../Components/CartTable';
+import { CartContext } from '../Context/CartContext';
 
 export default function MyAccount() {
+
+    const {fetchCartData } = CartContext();
+
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem("AuthToken");
         localStorage.removeItem("UserId");
+        fetchCartData()
         navigate(`/`)
     };
 

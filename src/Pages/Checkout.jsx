@@ -22,7 +22,7 @@ export default function Checkout() {
 
     return (
         <>
-            <div className='container-fluid my-5 px-4'>
+            <div className='container-fluid my-5 px-2'>
                 <div className='row'>
                     <div className='col-lg-6 col-md-12 col-sm-12 col-12 py-3 px-3'>
                         <h5 className='text-start mb-5'>Shipping Details</h5>

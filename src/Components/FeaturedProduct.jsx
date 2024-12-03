@@ -14,7 +14,7 @@ export default function FeaturedProduct({ Title, Description }) {
     return (
         <div className='my-5'>
             <TitleHeader Title={Title} Description={Description} />
-            <div className="card-grid my-5">
+            <div className="card-grid my-5 px-2">
                 {Product.map((Data, index) =>
                     index < 5 && <Cards key={Data._id} Data={Data} />
                 )}

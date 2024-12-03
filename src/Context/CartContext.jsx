@@ -95,7 +95,7 @@ const CartProvider = ({ children }) => {
         ADDCART()
     }, [initialState])
 
-    return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement }}>
+    return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement,fetchCartData }}>
         {children}
     </AppContext4.Provider >
 

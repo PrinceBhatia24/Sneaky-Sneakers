@@ -182,6 +182,7 @@ export default function NavTools() {
         else if (res.status === 200) {
             localStorage.setItem("AuthToken", data.token);
             localStorage.setItem("UserId", data.UserId);
+            fetchCartData()
             navigate(`/MyAccount`)
             handleClose2();
             setLoginInputs({
@@ -194,7 +195,7 @@ export default function NavTools() {
 
 
     const { FilteredProducts, Filter: { Search }, UpdateFilterValue } = FilterContext()
-    const { TotalItem } = CartContext();
+    const { TotalItem,fetchCartData } = CartContext();
     const { CompanyDetails } = CompanyDetailsContext()
 
 
