@@ -192,6 +192,13 @@ const CartReducer = (state, action) => {
                 ...state,
                 ...action.payload,
             };
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                Cart: [],
+                TotalItem: 0,
+                TotalPrice: 0,
+            };
     }
 
 }

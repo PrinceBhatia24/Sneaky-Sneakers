@@ -10,9 +10,15 @@ import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaUser, FaShoppingCart } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import EmptyCart from './EmptyCart';
-
+//Redux
+import { GetAllSlider } from '../Store/Slice/ProductSlice';
+import { useDispatch } from 'react-redux';
+//Redux
 
 export default function NavTools() {
+
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
     const [isRegister, setIsRegister] = useState(false);
     const toggleRegister = () => {
@@ -142,10 +148,10 @@ export default function NavTools() {
 
             if (!res.ok) {
                 console.error("Error:", data);
-                alert(`Registration failed: ${data || "Unknown error"}`);
+                // alert(`Registration failed: ${data || "Unknown error"}`);
             } else {
                 console.log("Success:", data);
-                alert("Registration successful!");
+                // alert("Registration successful!");
 
                 // Clear form inputs
                 setRegisterInputs({
@@ -157,7 +163,7 @@ export default function NavTools() {
             }
         } catch (error) {
             console.error("Network error:", error);
-            alert("An unexpected error occurred. Please try again later.");
+            // alert("An unexpected error occurred. Please try again later.");
         }
     };
 
@@ -195,7 +201,7 @@ export default function NavTools() {
 
 
     const { FilteredProducts, Filter: { Search }, UpdateFilterValue } = FilterContext()
-    const { TotalItem,fetchCartData } = CartContext();
+    const { TotalItem, fetchCartData } = CartContext();
     const { CompanyDetails } = CompanyDetailsContext()
 
 
@@ -227,8 +233,11 @@ export default function NavTools() {
         );
     };
 
-
-
+    //Redux
+    const del = () => {
+        dispatch(GetAllSlider())
+    }
+    //Redux
 
     return (
         <>
@@ -244,7 +253,7 @@ export default function NavTools() {
                     </span>
                 </NavLink>
 
-                <a data-bs-toggle="offcanvas" href="#offcanvasCart" className="nav-link position-relative"><FaShoppingCart /> <span className="MaincartItemCount">{TotalItem}</span></a>
+                <a  data-bs-toggle="offcanvas" href="#offcanvasCart" className="nav-link position-relative"><FaShoppingCart /> <span className="MaincartItemCount">{TotalItem}</span></a>
             </div>
 
 

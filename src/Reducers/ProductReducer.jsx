@@ -27,7 +27,11 @@ const ProductReducer = (state, action) => {
             return {
                 ...state, SingleProduct: action.payload
             }
-            
+        case "ProductByCategory":
+            return {
+                ...state, Product: action.payload
+            }
+
 
 
         default:

@@ -61,7 +61,6 @@ const ProductProvider = ({ children }) => {
 
     }
 
-
     //Functions To Get Product
     const GetProduct = async () => {
         dispatch({ type: "Loading" })
@@ -85,8 +84,8 @@ const ProductProvider = ({ children }) => {
     const GetProductById = async (ID) => {
         dispatch({ type: "Loading" })
         try {
-         
-            const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}/${ID}`)
+
+            const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}?Pid=${ID}`)
             const Response = await Res.data.data;
             dispatch({
                 type: "ProductById",
@@ -101,15 +100,29 @@ const ProductProvider = ({ children }) => {
 
     }
 
+    //Functions To Get Product
+    const GetProductByCategory = async (Category) => {
+        dispatch({ type: "Loading" })
+        try {
+            const Res = await axios.get(`${window.config.Domain}/Products/${window.config.OrgId}?cat=${Category}`)
+            return Response = await Res.data.data;
+    
+        }
+        catch (error) {
+            console.log("Something Went Wrong" + error)
+            dispatch({ type: "APIError" })
+        }
+
+    }
 
     //Function Calling
     useEffect(() => {
-        GetAllSlider();
         GetCategory();
+        GetAllSlider();
         GetProduct();
     }, [])
 
-    return <AppContext.Provider value={{ ...state, GetProductById }}>
+    return <AppContext.Provider value={{ ...state, GetProductById, GetProductByCategory, GetCategory }}>
         {children}
     </AppContext.Provider>
 

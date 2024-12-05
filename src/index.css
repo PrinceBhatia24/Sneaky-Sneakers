@@ -852,9 +852,10 @@ table {
   .navbar {
     padding: 0px 0px !important;
   }
-.navbar-tools{
-  width: 34%;
-}
+
+  .navbar-tools {
+    width: 34%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -961,4 +962,60 @@ table {
 
 .carousel-indicators {
   bottom: -41px !important;
+}
+
+.offcanvas-start {
+  transition: none;
+  animation: slideFromLeft 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.offcanvas-end {
+  transition: none;
+  animation: slideFromRight 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Backdrop Animation */
+.offcanvas-backdrop {
+  transition: none;
+  animation: fadeInBackdrop 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.offcanvas-backdrop.fade.show {
+  animation: fadeInBackdrop 0.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.offcanvas-backdrop {
+  background-color: #00000070!important;
 }

@@ -75,15 +75,18 @@ const CartProvider = ({ children }) => {
                 },
             });
 
-        
+
             if (!response.ok) {
-                throw new Error('Failed to fetch cart data');
+                // throw new Error('Failed to fetch cart data');
+                dispatch({ type: 'CLEAR_CART' });
+                return;
             }
 
             const data = await response.json();
 
             // Dispatch action to update state with fetched data
             dispatch({ type: 'SET_CART', payload: data });
+
         } catch (error) {
             console.error('Error fetching cart:', error);
         }
@@ -95,7 +98,7 @@ const CartProvider = ({ children }) => {
         ADDCART()
     }, [initialState])
 
-    return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement,fetchCartData }}>
+    return <AppContext4.Provider value={{ ...state, AddToCart, BuyNow, DeleteProduct, handleIncrement, handleDecrement, fetchCartData }}>
         {children}
     </AppContext4.Provider >
 
