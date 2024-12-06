@@ -44,7 +44,7 @@ export default function Header() {
                     <NavLink to="/" className="navbar-brand mx-0 d-flex">
                         <img
                             className="img-fluid"
-                            style={{ width: "100%", objectFit: "contain" }}
+                            style={{ objectFit: "contain" }}
                             src={`${window.config.CompanyLogo}/${CompanyDetails.logo}`}
                             alt="Logo"
                         />
