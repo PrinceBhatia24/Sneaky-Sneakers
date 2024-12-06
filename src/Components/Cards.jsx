@@ -20,7 +20,7 @@ export default function Cards(props) {
 
                         </div>
                         <div className="card-body">
-                            <h5 className="card-title">{Name}</h5>
+                            <h5 className="card-title">{Name.length > 15 ? `${Name.slice(0, 15)}...` : Name}</h5>
                             <p className="mb-1">
                                 <span className="price">{<FormatPrice Price={SalePrice} />}</span>
                                 <span className="old-price">{<FormatPrice Price={Price} />}</span>

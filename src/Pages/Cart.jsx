@@ -4,7 +4,8 @@ import { CartContext } from '../Context/CartContext';
 import FormatPrice from '../Helpers/FormatPrice';
 
 export default function Cart() {
-    const { Cart, TotalItem, TotalPrice, ProductID, DeleteProduct } = CartContext();
+    const { Cart, TotalItem, CartTotal, ProductID, ShippingCharges } = CartContext();
+    const TotalPayable = ShippingCharges + CartTotal
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -24,22 +25,22 @@ export default function Cart() {
                                     </h5>
                                     <div className="row" id="Total">
                                         <div className="col-8">
-                                            <p className="fw-bold text-start">Original Price</p>
+                                            <p className="fw-bold text-start">Subtotal</p>
                                         </div>{" "}
                                         <div className="col-4">
                                             {" "}
-                                            <p className="float-end fw-bold"><FormatPrice Price={TotalPrice} /></p>
+                                            <p className="float-end fw-bold"><FormatPrice Price={CartTotal} /></p>
                                         </div>
                                     </div>
                                     <div className="row" id="Total">
                                         <div className="col-8">
-                                            <p className="fw-bold text-start">Discount (5%)</p>
+                                            <p className="fw-bold text-start">Shipping</p>
                                         </div>{" "}
                                         <div className="col-4">
                                             {" "}
                                             <p className="float-end fw-bold" style={{
-                                                textDecoration: 'line-through'
-                                            }}><FormatPrice Price={TotalPrice + TotalPrice * 0.05} /></p>
+                                                
+                                            }}><FormatPrice Price={ShippingCharges} /></p>
                                         </div>
                                     </div>
                                     <div className="row" id="Total">
@@ -54,11 +55,11 @@ export default function Cart() {
                                     <hr />
                                     <div className="row" id="Total">
                                         <div className="col-8">
-                                            <p className="fw-bold text-start">Total Price</p>
+                                            <p className="fw-bold text-start">Total</p>
                                         </div>{" "}
                                         <div className="col-4">
                                             {" "}
-                                            <p className="float-end fw-bold"><FormatPrice Price={TotalPrice} /></p>
+                                            <p className="float-end fw-bold"><FormatPrice Price={TotalPayable} /></p>
                                         </div>
                                     </div>
 

@@ -11,6 +11,7 @@ import Collections from "./Pages/Collections";
 import Checkout from "./Pages/Checkout";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 import MyAccount from "./Pages/MyAccount";
+import About from "./Pages/About";
 
 function App() {
   const Router = createBrowserRouter([
@@ -21,11 +22,6 @@ function App() {
         {
           path: "/",
           element: <Homepage />
-        },
-
-        {
-          path: "/contactus",
-          element: <ContactUs />
         },
         {
           path: "/cart",
@@ -43,10 +39,21 @@ function App() {
           path: "/Checkout",
           element: <Checkout />
         },
-        ,
+
         {
           path: "/MyAccount",
           element: <MyAccount />
+        },
+
+        {
+          path: "/About",
+          element: <About/>
+        },
+        ,
+
+        {
+          path: "/ContactUs",
+          element: <ContactUs/>
         },
         {
           path: "*",

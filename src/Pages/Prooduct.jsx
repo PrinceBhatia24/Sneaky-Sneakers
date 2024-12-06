@@ -60,7 +60,7 @@ export default function Prooduct() {
         setDetail((prevDetail) => ({
             ...prevDetail,
             Size: Array.isArray(Size) && Size.length > 0 ? Size[0] : null,
-            // Color: Array.isArray(Colour) && Colour.length > 0 ? Colour[0] : null
+            Color: Array.isArray(Colour) && Colour.length > 0 ? Colour[0] : null
         }));
     }, [SingleProduct, Size, Colour]);
 
@@ -70,14 +70,14 @@ export default function Prooduct() {
 
     return (
         <>
-            <div className='container test my-5'>
+            <div className='container test my-2'>
                 <div className='row'>
                     <div className='col-lg-6 col-md-12 col-sm-12 col-12'>
                         <Carousel data-bs-theme="dark" className='carousel-container'>
                             <Carousel.Item >
                                 <Link to="">
                                     <img
-                                        style={{ objectFit: "cover", height: "80%" }}
+                                        style={{ objectFit: "cover", height: "100%" }}
                                         className="d-block w-100"
                                         src={`${window.config.ProductImage}/${Image1}`}
 
@@ -88,7 +88,7 @@ export default function Prooduct() {
                             <Carousel.Item >
                                 <Link to="">
                                     <img
-                                        style={{ objectFit: "cover", height: "80%" }}
+                                        style={{ objectFit: "cover", height: "100%" }}
                                         className="d-block w-100"
                                         src={`${window.config.ProductImage}/${Image1}`}
 
@@ -100,7 +100,7 @@ export default function Prooduct() {
                         </Carousel>
                     </div>
                     <div className='col-lg-6 col-md-12 col-sm-12 col-12'>
-                        <div className="prod_details_right_col_001">
+                        <div className="prod_details_right_col_001 mt-5">
                             <h4 className="prod_details_info my-2"> {Category}</h4>
                             <h1 className="prod_details_title">
                                 {Name}
@@ -120,13 +120,13 @@ export default function Prooduct() {
                                 </div>
 
                             </div>
-                            <div className="seprator2" />
-                            {/* <div className="productDescription">
-                                <div className="prod_details_offers">
-                                    <h4 className='my-3'>Color: {Detail.Color}</h4>
-                                    <ul className='m-0'>
-                                        {Array.isArray(Colour) ? (
-                                            Colour.map((color, index) => (
+                            <div className="seprator2 my-2" />
+                            {Colour && Colour.length > 1 && (
+                                <div className="productDescription">
+                                    <div className="prod_details_offers">
+                                        <h4 className='my-2'>Color: {Detail.Color}</h4>
+                                        <ul className='m-0'>
+                                            {Colour.map((color, index) => (
                                                 <li
                                                     key={`${color}-${index}`}
                                                     className={`size-item ${Detail.Color === color ? 'selected' : ''}`}
@@ -134,33 +134,34 @@ export default function Prooduct() {
                                                 >
                                                     {color}
                                                 </li>
-                                            ))
-                                        ) : ''}
-                                    </ul>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
+                            )}
+                            {Size && Size.length > 1 && (
+                                <div className="productDescription">
+                                    <div className="prod_details_offers">
+                                        <h4 className='my-2'>Sizes: {Detail.Size}</h4>
+                                        <ul className='m-0'>
+                                            {Array.isArray(Size) ? (
+                                                Size.map((size, index) => (
+                                                    <li
+                                                        key={`${size}-${index}`}
+                                                        className={`size-item ${Detail.Size === size ? 'selected' : ''}`}
+                                                        onClick={() => handleSizeClick(size)}
+                                                    >
+                                                        {size}
+                                                    </li>
+                                                ))
+                                            ) : ''}
+                                        </ul>
+                                    </div>
 
-                            </div> */}
-                            <div className="productDescription">
-                                <div className="prod_details_offers">
-                                    <h4 className='my-3'>Sizes: {Detail.Size}</h4>
-                                    <ul className='m-0'>
-                                        {Array.isArray(Size) ? (
-                                            Size.map((size, index) => (
-                                                <li
-                                                    key={`${size}-${index}`}
-                                                    className={`size-item ${Detail.Size === size ? 'selected' : ''}`}
-                                                    onClick={() => handleSizeClick(size)}
-                                                >
-                                                    {size}
-                                                </li>
-                                            ))
-                                        ) : ''}
-                                    </ul>
                                 </div>
+                            )}
+                            <div className="seprator2 my-2" />
 
-                            </div>
-
-                            <div className="seprator2 my-3" />
                             <div className="productDescription">
                                 <div className="prod_details_offers">
                                     <h4 className='mb-3'>Quantity: {Detail.Quantity}</h4>

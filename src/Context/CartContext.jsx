@@ -91,6 +91,25 @@ const CartProvider = ({ children }) => {
             console.error('Error fetching cart:', error);
         }
     };
+    
+    // const GetOrderedItems = async () => {
+    //     try {
+    //         const UserId = localStorage.getItem("UserId");
+    //         const response = await fetch(`${window.config.Domain}/OrderItems/${window.config.OrgId}/${UserId}`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //         });
+    //         const data = await response.json();
+
+    //         dispatch({ type: 'Get_Ordered_Item', payload: data });
+
+    //     } catch (error) {
+    //         console.error('Error fetching cart:', error);
+    //     }
+    // };
+
     useEffect(() => {
         fetchCartData()
     }, [])

@@ -65,7 +65,7 @@ export default function Header() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/about" className="nav-link">
+                            <NavLink to="/About" className="nav-link">
                                 About
                             </NavLink>
                         </li>
@@ -75,7 +75,7 @@ export default function Header() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/contact" className="nav-link">
+                            <NavLink to="/ContactUs" className="nav-link">
                                 Contact
                             </NavLink>
                         </li>
@@ -128,7 +128,7 @@ export default function Header() {
                                 aria-expanded="false"
                                 aria-controls="aboutSubmenu"
                             >
-                                <NavLink to="/about" className="nav-link OffNav">
+                                <NavLink to="/About" className="nav-link OffNav">
                                     About
                                 </NavLink>
                                 <svg

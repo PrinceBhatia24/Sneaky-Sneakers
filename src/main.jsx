@@ -10,19 +10,22 @@ import { CartProvider } from './Context/CartContext.jsx'
 import { CheckoutProvider } from './Context/CheckoutContext.jsx'
 import { Provider } from 'react-redux'
 import store from './Store/Store.jsx'
+import { UserDetailsProvider } from './Context/UserDetails.jsx'
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <CompanyDetailsProvider>
-      <ProductProvider>
-        <FilterProvider>
-          <CartProvider>
-            <CheckoutProvider>
-              <App />
-            </CheckoutProvider>
-          </CartProvider>
-        </FilterProvider>
-      </ProductProvider>
-    </CompanyDetailsProvider>
+    <UserDetailsProvider>
+      <CompanyDetailsProvider>
+        <ProductProvider>
+          <FilterProvider>
+            <CartProvider>
+              <CheckoutProvider>
+                <App />
+              </CheckoutProvider>
+            </CartProvider>
+          </FilterProvider>
+        </ProductProvider>
+      </CompanyDetailsProvider>
+    </UserDetailsProvider>
   </Provider>
 
 

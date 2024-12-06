@@ -30,8 +30,6 @@ const FilterProvider = ({ children }) => {
         }
     }
 
-
-
     //UseReducer
     const [state, dispatch] = useReducer(FilterReducer, initialstate)
 

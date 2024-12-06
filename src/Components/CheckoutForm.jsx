@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function CheckoutForm() {
     const navigate = useNavigate();
-    
+
 
     const { Cart, CartTotal, ShippingCharges } = CartContext();
     const [formData, setFormData] = useState({
@@ -31,15 +31,14 @@ export default function CheckoutForm() {
 
     const OrderItem = async (e) => {
         e.preventDefault();
-
-        
-        const res = await fetch(`${window.config.Domain}/SetOrderedItems`, {
+        const UserId = localStorage.getItem("UserId");
+        const res = await fetch(`${window.config.Domain}/OrderItems/${window.config.OrgId}/${UserId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                ShippingDetail: formData, OrderDetails: Cart, OrgId: window.config.OrgId, OrderId: OrderIdGenerator(), TotalPaid: CartTotal + ShippingCharges
+                ShippingDetail: formData, OrderDetails: Cart, OrderId: OrderIdGenerator(), TotalPaid: CartTotal + ShippingCharges
             })
         })
         const data = await res.json();
@@ -47,7 +46,7 @@ export default function CheckoutForm() {
             console.log("Something Went Wrong");
         }
         else if (res.status === 200) {
-            
+
             const clearform = () => {
                 setFormData({
                     email: '',

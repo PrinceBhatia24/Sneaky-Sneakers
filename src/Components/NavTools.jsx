@@ -198,8 +198,6 @@ export default function NavTools() {
         }
     };
 
-
-
     const { FilteredProducts, Filter: { Search }, UpdateFilterValue } = FilterContext()
     const { TotalItem, fetchCartData } = CartContext();
     const { CompanyDetails } = CompanyDetailsContext()

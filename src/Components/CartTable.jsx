@@ -5,8 +5,8 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 
 export default function CartTable() {
-    const { Cart, ProductID, DeleteProduct } = CartContext();
-    console.log(Cart);
+    const { Cart, ProductID, DeleteProduct, TotalItem, ShippingCharges, CartTotal } = CartContext();
+    const TotalPayable = ShippingCharges + CartTotal
 
     return (
         <>
@@ -33,19 +33,18 @@ export default function CartTable() {
 
                             <td className="lalign" >
                                 <Link to={`/Product/${ProductID}`}>
-                                    <div className='d-flex align-items-end'>
+                                    <div className='d-flex align-items-center'>
                                         <img className="img-fluid CartImg" style={{
                                             width: '90px',
                                             height: '90px',
                                             objectFit: 'contain',
                                             border: 'none'
                                         }}
-                                 
                                             src={`${window.config.ProductImage}/${Data.Image}`}
                                         />
-                                        <div className='mx-3 mt-4'>
+                                        <div className='mx-3'>
                                             <p className='PName' style={{ fontSize: '18px' }}>{Data.Name}-({Data.Size})</p>
-                                            <p className='PriceList'>{<FormatPrice Price={Data.Price} />}</p>
+                                            <p className='PriceList mx-0'>{<FormatPrice Price={Data.Price} />}</p>
                                         </div>
                                     </div>
                                 </Link>

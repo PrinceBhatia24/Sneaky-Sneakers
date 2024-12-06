@@ -36,7 +36,7 @@ export default function Footer() {
                                     </p>
                                 </div>
                                 <div className='my-5'>
-                                    <h6 className=" my-0 text-white md:text-lg text-sm font-avenir font-semibold uppercase lg:text-left text-start">BREGISTERED ADDRESS</h6>
+                                    <h6 className=" my-0 text-white md:text-lg text-sm font-avenir font-semibold uppercase lg:text-left text-start">REGISTERED ADDRESS</h6>
                                     <p className="text text-start my-1">
                                         <a
                                             className="Emaill Emailhreff text-start"
@@ -112,24 +112,24 @@ export default function Footer() {
                                 <h2 className="ftco-heading-2">Menu</h2>
                                 <ul className="list-unstyled">
                                     <li>
-                                        <a href="AboutUs.aspx" className="py-2 d-block">
+                                        <Link to="/About" className="py-2 d-block">
                                             About Us
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="Shop.aspx" className="py-2 d-block">
+                                        <Link to="/Collections" className="py-2 d-block">
                                             Shop
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="ContactUs.aspx" className="py-2 d-block">
+                                        <Link to="/ContactUs" className="py-2 d-block">
                                             Contact Us
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="Cart.aspx" className="py-2 d-block">
+                                        <Link to="/Cart" className="py-2 d-block">
                                             Cart
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -148,7 +148,7 @@ export default function Footer() {
                 >
                     <div className="container-xl container-md container-sm container">
                         <div className="row">
-                            <div className="col-lg-12 col-md-12 col-sm-12 text-left align-items-center justify-content-sm-center justify-content-md-center d-flex">
+                            <div className="col-lg-12 col-md-12 col-sm-12 justify-content-center text-left align-items-center justify-content-sm-center justify-content-md-center d-flex">
                                 <p className="ex-small mb-0 text-center" style={{ marginTop: 0 }}>
                                     ©2024 {CompanyDetails.companyname} | All Rights Reserved
                                 </p>

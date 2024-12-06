@@ -8,10 +8,22 @@ import EmptyCart from './EmptyCart';
 
 
 export default function Offcanvas() {
+    function updateViewportDimensions() {
+        const vh = window.innerHeight * 0.01; // 1% of the viewport height
+        const vw = window.innerWidth * 0.01; // 1% of the viewport width
+        document.documentElement.style.setProperty('--viewport-height', `${vh * 100}px`);
+        document.documentElement.style.setProperty('--viewport-width', `${vw * 100}px`);
+    }
+    
+    // Update on load and resize
+    window.addEventListener('load', updateViewportDimensions);
+    window.addEventListener('resize', updateViewportDimensions);
+    
+    
     const { Cart, TotalItem, CartTotal, ProductID } = CartContext();
     return (
         <div>
-            <div className="offcanvas offcanvas-end customoffcanvas" style={{ height: '97vh' }} tabIndex="-1" id="offcanvasCart" aria-labelledby="offcanvasExampleLabel">
+            <div className="offcanvas offcanvas-end customoffcanvas" style={{ height: 'var(--viewport-height)', width: 'var(--viewport-width)' }} tabIndex="-1" id="offcanvasCart" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title" id="offcanvasExampleLabel">Shopping Cart ({TotalItem})</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -36,7 +48,7 @@ export default function Offcanvas() {
                     </div>
                 </div>
                 <div className="offcanvas-footer">
-                    <div className="card-grid-btn my-1" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <div className="card-grid-btn my-4 mx-1" data-bs-dismiss="offcanvas" aria-label="Close">
                         <Link to="/Checkout" style={{ lineHeight: '2rem' }} className="btn checkbtn py-2 border-dark bg-dark text-white">
                             <div className='d-flex'>
                                 <span style={{
@@ -70,14 +82,12 @@ function OffCanvasCard(props) {
     const { ProductID, handleDecrement, handleIncrement } = CartContext();
     const { QuantityShow } = props
 
-
-
+    
     return (
         <div className='row mb-5' style={{ width: '100%' }}>
             <div className='col-3 position-relative py-1 d-grid' style={{ placeItems: 'center', }}>
                 <img className='img-fluid CartImg'
                     style={{
-                        // height: '100%',
                         objectFit: 'contain',
                         border: 'none',
                     }}
@@ -88,8 +98,8 @@ function OffCanvasCard(props) {
             </div>
             <div className='col-7 '>
                 <Link to={`/Product/${ProductID}`}>
-                    <p className='PName'>{Name}</p>
-                    <p className='PName' style={{ fontWeight: '500' }}>{<FormatPrice Price={Price} />} | {Size} | {Color}</p>
+                    <p className='PName'>{Name.length > 15 ? `${Name.slice(0, 15)}...` : Name}</p>
+                    <p className='PName' style={{ fontWeight: '500' }}>{<FormatPrice Price={Price} />} {Size ? `| ${Size}` : ''} {Color ? `| ${Color}` : ''}</p>
                 </Link>
                 {QuantityShow ? <div className="quantity-selector bg-dark text-white mb-2" style={{ padding: '3px 14px' }}>
                     <button className="quantity-button text-white " style={{ fontSize: '1rem' }} onClick={() => handleDecrement(id)}>-</button>
