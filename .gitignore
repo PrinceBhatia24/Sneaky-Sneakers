@@ -22,3 +22,5 @@ config.js
 *.njsproj
 *.sln
 *.sw?
+
+config
