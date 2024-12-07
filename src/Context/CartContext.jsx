@@ -29,10 +29,12 @@ const CartProvider = ({ children }) => {
         dispatch({ type: 'QuantityDecrease', payload: id });
 
     }
+
     const handleIncrement = (id) => {
         dispatch({ type: 'QuantityIncrease', payload: id });
 
     }
+
     const DeleteProduct = (id) => {
         dispatch({ type: 'DeleteCart', payload: id });
 
@@ -65,6 +67,7 @@ const CartProvider = ({ children }) => {
             // console.error('Error saving cart:', error);
         }
     }
+
     const fetchCartData = async () => {
         try {
             const UserId = localStorage.getItem("UserId");
@@ -91,8 +94,7 @@ const CartProvider = ({ children }) => {
             console.error('Error fetching cart:', error);
         }
     };
-    
-    // const GetOrderedItems = async () => {
+
     //     try {
     //         const UserId = localStorage.getItem("UserId");
     //         const response = await fetch(`${window.config.Domain}/OrderItems/${window.config.OrgId}/${UserId}`, {
@@ -114,6 +116,7 @@ const CartProvider = ({ children }) => {
         fetchCartData()
     }, [])
     useEffect(() => {
+        
         ADDCART()
     }, [initialState])
 

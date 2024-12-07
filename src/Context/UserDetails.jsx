@@ -8,7 +8,8 @@ const UserDetailsProvider = ({ children }) => {
     //initial State 
     const initialstate = {
         User: {},
-        OrderedItems: []
+        OrderedItems: [],
+        OrderDetails: []
     }
     //UseReducer
     const [state, dispatch] = useReducer(UserReducer, initialstate)
@@ -53,13 +54,21 @@ const UserDetailsProvider = ({ children }) => {
         }
     };
 
-    useEffect(() => {
-        GetUserDetials();
-        GetOrderedItems();
-    }, [])
+    const GetOrderDetails = (id) => {
+        dispatch({
+            type: "OrderDetails",
+            payload: id
+        });
+    }
+    const DataClear = () => {
+        dispatch({
+            type: "DataClear",
+        });
+    }
 
 
-    return <UserContext.Provider value={{ ...state }}>
+
+    return <UserContext.Provider value={{ ...state, GetOrderDetails, DataClear, GetUserDetials, GetOrderedItems }}>
         {children}
     </UserContext.Provider>
 

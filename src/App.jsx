@@ -12,6 +12,7 @@ import Checkout from "./Pages/Checkout";
 import OrderConfirmation from "./Pages/OrderConfirmation";
 import MyAccount from "./Pages/MyAccount";
 import About from "./Pages/About";
+import OrderDetails from "./Components/OrderDetails";
 
 function App() {
   const Router = createBrowserRouter([
@@ -47,13 +48,16 @@ function App() {
 
         {
           path: "/About",
-          element: <About/>
+          element: <About />
         },
-        ,
 
         {
           path: "/ContactUs",
-          element: <ContactUs/>
+          element: <ContactUs />
+        },
+        {
+          path: "/OrderDetails/:id",
+          element: <OrderDetails />
         },
         {
           path: "*",

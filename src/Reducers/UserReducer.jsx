@@ -8,6 +8,16 @@ const UserReducer = (state, action) => {
             return {
                 ...state, OrderedItems: action.payload
             }
+        case "OrderDetails":
+            const id = action.payload
+            const item = state.OrderedItems.find(item => item._id === id)
+            return {
+                ...state, OrderDetails: item
+            }
+        case "DataClear":
+            return {
+                ...state, User: {}, OrderedItems: [], OrderDetails: []
+            }
         default:
             return state
     }

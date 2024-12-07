@@ -70,8 +70,8 @@ export default function Header() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/services" className="nav-link">
-                                Services
+                            <NavLink to="/Collections" className="nav-link">
+                                Collections
                             </NavLink>
                         </li>
                         <li className="nav-item">
@@ -131,7 +131,7 @@ export default function Header() {
                                 <NavLink to="/About" className="nav-link OffNav">
                                     About
                                 </NavLink>
-                                <svg
+                                {/* <svg
                                     style={{ width: "20px" }}
                                     stroke="currentColor"
                                     fill="currentColor"
@@ -142,10 +142,10 @@ export default function Header() {
                                     className="transition duration-300 ease transform text-heading arrow mr-4 flex justify-end items-center rotate-0"
                                 >
                                     <path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"></path>
-                                </svg>
+                                </svg> */}
                             </div>
                             {/* Submenu */}
-                            <ul
+                            {/* <ul
                                 className="collapse navbar-nav navlist ps-4"
                                 id="aboutSubmenu"
                                 style={{ listStyle: "none" }}
@@ -160,7 +160,7 @@ export default function Header() {
                                         Team
                                     </NavLink>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </li>
 
                         {/* Services Menu with Submenu */}
@@ -172,10 +172,10 @@ export default function Header() {
                                 aria-expanded="false"
                                 aria-controls="servicesSubmenu"
                             >
-                                <NavLink to="/services" className="nav-link OffNav">
-                                    Services
+                                <NavLink to="/Collections" className="nav-link OffNav">
+                                    Collections
                                 </NavLink>
-                                <svg
+                                {/* <svg
                                     style={{ width: "20px" }}
                                     stroke="currentColor"
                                     fill="currentColor"
@@ -186,10 +186,10 @@ export default function Header() {
                                     className="transition duration-300 ease transform text-heading arrow mr-4 flex justify-end items-center rotate-0"
                                 >
                                     <path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"></path>
-                                </svg>
+                                </svg> */}
                             </div>
                             {/* Submenu */}
-                            <ul
+                            {/* <ul
                                 className="collapse navbar-nav navlist ps-4"
                                 id="servicesSubmenu"
                                 style={{ listStyle: "none" }}
@@ -204,7 +204,49 @@ export default function Header() {
                                         Mobile Development
                                     </NavLink>
                                 </li>
-                            </ul>
+                            </ul> */}
+                        </li>
+                        <li className="nav-item">
+                            <div
+                                className="d-flex justify-content-between align-items-center"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#servicesSubmenu"
+                                aria-expanded="false"
+                                aria-controls="servicesSubmenu"
+                            >
+                                <NavLink to="/ContactUs" className="nav-link OffNav">
+                                    Contact
+                                </NavLink>
+                                {/* <svg
+                                    style={{ width: "20px" }}
+                                    stroke="currentColor"
+                                    fill="currentColor"
+                                    strokeWidth="0"
+                                    viewBox="0 0 512 512"
+                                    height="100%"
+                                    width="100%"
+                                    className="transition duration-300 ease transform text-heading arrow mr-4 flex justify-end items-center rotate-0"
+                                >
+                                    <path d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"></path>
+                                </svg> */}
+                            </div>
+                            {/* Submenu */}
+                            {/* <ul
+                                className="collapse navbar-nav navlist ps-4"
+                                id="servicesSubmenu"
+                                style={{ listStyle: "none" }}
+                            >
+                                <li className="nav-item">
+                                    <NavLink to="/services/web" className="nav-link OffNav">
+                                        Web Development
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink to="/services/mobile" className="nav-link OffNav">
+                                        Mobile Development
+                                    </NavLink>
+                                </li>
+                            </ul> */}
                         </li>
                     </ul>
                 </div>

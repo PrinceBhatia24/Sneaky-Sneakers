@@ -17,10 +17,22 @@ import { useDispatch } from 'react-redux';
 
 export default function NavTools() {
 
-    const dispatch = useDispatch();
+    const { FilteredProducts, Filter: { Search }, UpdateFilterValue } = FilterContext()
+    const { TotalItem, fetchCartData } = CartContext();
+    const { CompanyDetails } = CompanyDetailsContext()
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const [isRegister, setIsRegister] = useState(false);
+    const [show, setShow] = useState(false);
+    const [show2, setShow2] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleClose2 = () => setShow2(false);
+    const handleShow = () => setShow(true);
+    const handleLoginShow = () => setShow2(true);
+
     const toggleRegister = () => {
         setIsRegister(!isRegister);
         setErrors({ login: {}, register: {} }); // Clear errors on toggle
@@ -39,7 +51,6 @@ export default function NavTools() {
         email: "",
         password: "",
     });
-
 
     // Validation Errors
     const [errors, setErrors] = useState({
@@ -198,37 +209,25 @@ export default function NavTools() {
         }
     };
 
-    const { FilteredProducts, Filter: { Search }, UpdateFilterValue } = FilterContext()
-    const { TotalItem, fetchCartData } = CartContext();
-    const { CompanyDetails } = CompanyDetailsContext()
 
-
-    const [show, setShow] = useState(false);
-    const [show2, setShow2] = useState(false);
-
-
-    const handleClose = () => setShow(false);
-    const handleClose2 = () => setShow2(false);
-    const handleShow = () => setShow(true);
-    const handleLoginShow = () => setShow2(true);
-
-    const handleLoginNavigation = () => {
-
-        const token = localStorage.getItem("AuthToken");
-        if (token) {
-            // navigate(`/MyAccount`)
-            window.location.href = "/MyAccount";
-        }
-        else {
-            handleLoginShow();
-        }
-    };
     const highlightText = (text, searchTerm) => {
         if (!searchTerm) return text;
         const regex = new RegExp(`(${searchTerm})`, 'gi'); // Case-insensitive match
         return text.split(regex).map((part, index) =>
             regex.test(part) ? <span key={index} className="highlight">{part}</span> : part
         );
+    };
+
+
+    const handleLoginNavigation = () => {
+        const token = localStorage.getItem("AuthToken");
+        if (token) {
+            navigate('/MyAccount')
+            // window.location.href = "/MyAccount";
+        }
+        else {
+            handleLoginShow();
+        }
     };
 
     //Redux
@@ -245,13 +244,13 @@ export default function NavTools() {
                         <FaSearch />
                     </span>
                 </a>
-                <NavLink className="nav-link" onClick={handleLoginNavigation}>
+                <a className="nav-link" onClick={handleLoginNavigation}>
                     <span style={{ cursor: 'pointer' }}>
                         <FaUser />
                     </span>
-                </NavLink>
+                </a>
 
-                <a  data-bs-toggle="offcanvas" href="#offcanvasCart" className="nav-link position-relative"><FaShoppingCart /> <span className="MaincartItemCount">{TotalItem}</span></a>
+                <a data-bs-toggle="offcanvas" href="#offcanvasCart" className="nav-link position-relative"><FaShoppingCart /> <span className="MaincartItemCount">{TotalItem}</span></a>
             </div>
 
 
